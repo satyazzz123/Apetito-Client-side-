@@ -1,38 +1,234 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Overpass&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Overpass&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Overpass&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Kanit:wght@900&family=Overpass&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+::-webkit-scrollbar {
+  display: none;
+}
+.App{
+  height: 0;
+}
+.nav{
+  display: flex;
+  justify-content: space-around;
+  font-size: 3rem;
+  background-color: black;
+  height: 10rem;
+  align-items: center ;
+  box-shadow: 0px 15px 10px -15px #111; 
+ 
+  
+}
+.nav{
+  /* background:  #F6A21E; */
+  background-color: beige;
+  padding: 2rem 0rem;
+
+ 
+}
+.nav a{
+  text-decoration: none;
+  color: white;
+  color: #3D550C;
+  font-weight: 500;
+  font-size: 2.2rem;
+}
+.nav-cont{
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+#show-ing{
+ 
+ 
+}
+.rec-img{
+  height: 40rem;
+  width: 40rem;
+}
+li{
+  list-style: none  ;
+}
+.recipe-info{
+  transform: translate(10rem,-5rem);
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Overpass', sans-serif;
+}
+.save{
+   transform: translate(30rem,4rem);
+   
+}
+.create-input{
+  padding: 2.5rem;
+margin-bottom: 2rem;
+}
+.rec-img-modal{
+  height: 40rem;
+  width: 40rem;
+  transform: translate(40rem,8rem);
+}
+.cook-time{
+  font-family: Canva Sans,Noto Sans Variable,Noto Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;
+}
+.ing-li{
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Overpass', sans-serif;
+}
+.heading{
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Kanit', sans-serif;
+  font-family: 'Overpass', sans-serif;  
+color: #81B622;
+  
+
+}
+.instructions{
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Overpass', sans-serif;
+}
+.create-recipe{
+  background-image: url("https://images.unsplash.com/photo-1463123081488-789f998ac9c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: translateY(-2.6rem);
+  color: white;
+
+}
+.create-recipe input{
+    background-color: #D4D6CF;
+    border: none;
+    border-radius: 0.5rem;
   }
-}
+  .create-recipe textarea{
+    background-color: #D4D6CF;
+    border: none;
+    border-radius: 0.5rem;
+  }
+  .create-recipe textarea:focus{
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ outline: none;
+  
+  }
+  
+  
+
+.create-recipe input:focus{
+outline: none;
+}
+.create-overlay{
+  background: rgba(0, 0, 0, 0.5);
+}
+.arrow-up{
+  font-size: 3.5rem;
+  transform: translate(100rem,-1rem);
+}
+@keyframes mymove {
+  from {transform: translateY(0rem);}
+  to {transform: translateY(2rem);}
+}
+.arrow-up :hover{
+  animation-name: mymove;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out;
+  /* transform: scale(1.2); */
+
+}
+/* .home-recipe :hover{
+  background-color: rgb(237, 233, 233);
+  transition-duration: 0.5s;  
+  box-shadow: 0px 15px 10px -15px #111; 
+  border-radius: 2rem;
+} */
+.auth-wrapper{
+  display: flex;
+}
+.auth{
+  display: flex;
+  flex-direction: column;
+width: 50%;
+height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.login-component{
+  width: 100%;
+  /* border: 2px solid black; */
+  height: 50%;
+  font-size: 2.2rem;
+
+}
+.login-component input{
+  background-color: rgba(228, 221, 221, 0.5);
+  border: none;
+  border-radius: 0.5rem;
+  width: 50%;
+  padding: 1rem;
+
+  
+}
+.register-component{
+  width: 100%;
+  /* border: 2px solid black; */
+  height: 50%;
+  font-size: 2.2rem;
+
+}
+.image-holder{
+  background: url("https://images.unsplash.com/photo-1518737003272-dac7c4760d5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80");
+  height:100vh;
+  width: 50%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.form-group{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.log-btn{
+  transform: translateY(2rem);
 }
+.log-btn button{
+  background-color: rgb(99, 99, 254);
+  border: none;
+  padding: 1rem 6rem;
+  border-radius: 2rem;
+}
+.register-component input{
+  background-color: rgba(228, 221, 221, 0.5);
+  border: none;
+  border-radius: 0.5rem;
+  width: 50%;
+  padding: 1rem;
+}
+.nav-cont{
+  
+}
+.search-form{
+  padding: 10rem;
+}
+#search{
+width: 50%;
+padding: 2rem;
+border-radius: 1rem;
+border: 2px solid #81B622;
+transform: translateX(36rem);
+}
+#search:focus{
+  outline: none;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.home-recipe{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:5rem;
+  /* background-color: black; */
 }
