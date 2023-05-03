@@ -23,7 +23,7 @@ export default function Navbar() {
         <a href="/create-recipe">Create</a>
       
         {!cookies.access_token?(  
-        <a href="/auth">Login/Logout</a>): <> <a href="/saved-recipes">Saved</a> <a onClick={logout}>Logout</a></>  
+        <a href="/auth">Sign-in or Sign-up</a>): <> <a href="/saved-recipes">Saved</a> <a onClick={logout}>Logout</a></>  
         }
         </div>
       

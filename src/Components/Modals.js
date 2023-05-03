@@ -4,6 +4,8 @@ import axios from 'axios';
 export default function Modals() {
     const[data,setdata]=useState("")
     const[name,setname]=useState("")
+    const[read,setread]=useState(200);
+    const[vanish,setvanish]=useState("block")
   
     useEffect(()=>{
         const showfull=async()=>{
@@ -27,44 +29,69 @@ export default function Modals() {
         
 
     },[])
+    const readmore=(event)=>{
+
+      setread(data.instructions.length)
+   
+      event.preventDefault();
+
+      setvanish("none")
+    }
+ 
   return (
-    <div>
-  <div className="recipe-info">
-  <div>
-            <img src={data.imageUrl} className='rec-img-modal' alt="" />
-          </div>
-       <div style={{display:"flex"}}>
-      <h1>    {data.name}   
+    <div className='modal'>
+    
+      <h1 style={{fontSize:"6rem",fontFamily: `Francois One`,fontWeight:"bolder",transform:"translate(10rem,18rem)"}}>
+       {data.name?.toUpperCase()}
+      </h1>
+  <div className="recipe-info-1">
+    
+  
+      <div className="text-modal" style={{width:"70%",padding:"3rem 3rem"}}>
+      <div style={{margin:"0rem 0 rem"}}>
+      <h1 className='bottom' style={{fontSize:"4rem",fontFamily: `Francois One`,fontWeight:"bolder",fontSize:"6rem"}}>    
+        {data.name}   
        </h1>
      
           </div>
-          <div className='instructions'>
-            <p classname="inst"><h2>Recipe instructions</h2>
+          <div className='instructions' style={{margin:"0,0",display:"inline-block"}}>
+            <p classname="inst" style={{width:"70%",margin:"0px 0px",fontSize:"1.8rem"}}>
+              <h1 style={{fontSize:"4rem",fontWeight:"bolder"}} className='bottom'> Instructions</h1>
             
-            {data.instructions}
+            {data.instructions?.slice(0,read)}
+         { data.instructions?.length>200 ? <a href=" " style={{display:`${vanish}`}} onClick={readmore}>read more</a>:<span></span>}
+    
             
             </p>
 
           </div>
           <div className='show-ing'>
             <li className='show-ing' >
-           <span>  <h2 style={{display:"inline"}}>
+           <span>  <h2 style={{display:"inline",fontSize:"4rem"}} className='bottom'>
              Ingredients Used
               </h2></span> 
-{/*             
-              {data.ingredients.map((ingredient)=>(
-                <li>{ingredient}</li>
-              ))} */}
+            
+              {data.ingredients?.map((ingredient)=>(
+                <li style={{fontSize:"1.7rem"}}>{ingredient}</li>
+              ))}
             </li>
           </div>
           <p>
-            <h2>
+            <h2  style={{fontSize:"4rem"}} className='bottom'>
               Cooking Time
-              </h2>{data.cookingTime} hrs
+              </h2>
+              <span style={{fontSize:"2.5rem"}}>{Math.trunc(data.cookingTime/60)}hour {data.cookingTime%60} mins</span>
+              
           </p>
-          <p>
-            Recipe by {name}
+          <p style={{fontSize:"1.5rem"}}>
+        <h2>
+        Recipe by {name}
+        </h2>
           </p>
+      </div>
+         
+            <img className="food-img" src={data.imageUrl} alt="" />
+         
         
        </div>
 

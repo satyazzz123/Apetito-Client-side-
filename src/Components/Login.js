@@ -47,19 +47,19 @@ export default function Login() {
         }
     }
   return (
-    <div>
+    <div className='auth-comp'>
     <form action="" onSubmit={onsubmit}>
-      <h2 style={{display:"flex",justifyContent:"center"}}>Sign-in</h2>
+      <h2 style={{display:"flex",justifyContent:"center",transform:"translateY(2rem)",color:"white"}}>Sign-in</h2>
      <div className="form-group"id='username-1'>
-     <label htmlFor="username">Username:</label>
-      <input placeholder='Enter your username' type="text" id='username' onChange={(event)=>{setusername(event.target.value)}}  value={username}/>
+   
+      <input placeholder='Enter your username' style={{margin:"0 2rem"}} type="text" id='username' onChange={(event)=>{setusername(event.target.value)}}  value={username}/>
      </div>
      <div className="form-group">
-     <label htmlFor="password">Password:</label>
-      <input placeholder='Enter your password' type="text" id='password' onChange={(event)=>{setpassword(event.target.value)}} value={password} />
+   
+      <input placeholder='Enter your password' type="password" id='password' onChange={(event)=>{setpassword(event.target.value)}} value={password} />
      </div >
     <div style={{display:"flex",justifyContent:"center"}} className='log-btn'>
-    <button type='submit' >Login</button>
+    <button type='submit' ><span style={{color:"white",fontWeight:"bolder"}}>login</span></button>
     </div>
     </form>
   

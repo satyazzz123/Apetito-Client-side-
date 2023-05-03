@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { userGetUserId } from '../hooks/useGetUserId';
+import {BsClockHistory} from 'react-icons/bs';
 
 export default function Save() {
   const userId=userGetUserId()
@@ -32,30 +33,50 @@ export default function Save() {
  
   return (
     <div>
-     <h1>
+     <h1 style={{fontSize:"4rem",display:"flex",justifyContent:"center"}}>
       Saved Recipes
      </h1>
-     <ul>
+     <div className='saved-holder'>
       {savedRecipes.map((recipe)=>(
-        <li key={recipe._id}>
-      
-          <div>
-      <h2>    {recipe.name}</h2>
+        <div key={recipe._id} id={recipe._id} className='recipe-card'  
+        
      
-          </div>
-          <div className='instructions'>
-            <p>{recipe.instructions}</p>
+        
+        >
+   
 
-          </div>
+         
+
+       
           <div>
-            <img src={recipe.imageUrl} alt="" />
+            <img src={recipe.imageUrl} className='rec-img' alt="" />
           </div>
-          <p>
-            {recipe.cookingTime}
+
+
+
+
+
+       <div className="recipe-info">
+       <div >
+      <h1 className='heading' style={{color:"   #3D550C",transform:"translateX(2rem)"}} >    {recipe.name}   
+       </h1>
+      
+      
+          </div>
+        
+         
+         
+          <p className='cook-time'>
+            
+            <span className='cook-time'> <BsClockHistory/> {recipe.cookingTime} mins</span>
           </p>
-        </li>
+        
+       </div>
+       
+          
+        </div>
       ))}
-     </ul>
+     </div>
     </div>
   )
 }

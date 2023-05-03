@@ -6,7 +6,11 @@ import {useCookies} from 'react-cookie';
 import 'react-medium-image-zoom/dist/styles.css';
 import { userRecipeId } from '../hooks/useRecipeId';
 import { useNavigate } from 'react-router-dom';
-import {BsFillArrowUpCircleFill} from 'react-icons/bs'
+import {BsFillArrowUpCircleFill} from 'react-icons/bs';
+import { TypeAnimation } from 'react-type-animation';
+import {BsFillBookmarkFill} from 'react-icons/bs';
+import {BsClockHistory} from 'react-icons/bs';
+import head from '../Photos/Group 11.png'
 
 export default function Home() {
   const userId=userGetUserId()
@@ -115,25 +119,44 @@ const unsaverecipe=async(recipeId)=>{
   
   
   return (
-    <div style={{margin:"0rem 0",padding:"8rem 0"}}>
-     <h1 className='heading' style={{  color: "#3D550C",fontSize:"5rem",display:"flex",justifyContent:"center",margin:"0 0",fontFamily: "monospace",fontWeight:"bolder"}}>
-      Our latest Recipes
-     </h1>
+    <div style={{background:"#ECF87F"}}>
+     <div className='header' >
+   <div className="overlay">
+   <div className='down' style={{  color: "#F9D876",fontSize:"5rem",display:"flex",justifyContent:"center",fontWeight:"bolder"}}> 
+     Treat yourself with something good today , you deserve it.
+     </div>
+     <form action="" method="post" className='search-form'>
+
+<input type="search" name='search' placeholder='search for recipes here' onChange={(e)=>{setsearch(e.target.value)}} value={name} id='search'/>
+
+ 
+</form>
+   </div>
+     </div>
+     <div className='heading' style={{  color: "#3D550C",fontSize:"5rem",display:"flex",justifyContent:"center",margin:"10rem 0",fontFamily: "monospace",fontWeight:"bolder"}}>
+      {/* Our latest Recipes */}
+
+      <img src={head} alt="" />
+     </div>
    
- <form action="" method="post" className='search-form'>
-
- <input type="search" name='search' placeholder='search for recipes here' onChange={(e)=>{setsearch(e.target.value)}} value={name} id='search'/>
 
   
- </form>
-  
-     <ul style={{display:"flex",flexDirection:"column",}} className='home-recipe'>
+     <ul  className='home-recipe'>
       {recipes
       .filter((recipe)=>{
-          return name.toLowerCase()===""?recipe:name.toLowerCase().includes(recipe.name.toLowerCase())
+          // return name.toLowerCase()===""?recipe:name.toLowerCase().includes(recipe.name.toLowerCase())
+          if (name !== "") {
+            if (recipe.name.toLowerCase().startsWith(name)) {
+              return recipe.name.toLowerCase().startsWith(name)
+            }
+                 
+          }
+          else {
+            return recipe
+          }
       })
       .map((recipe)=>(
-        <div key={recipe._id} id={recipe._id}  style={{display:"flex",padding:"5rem 0"}}  
+        <div key={recipe._id} id={recipe._id} className='recipe-card'  
         
         onClick={()=>{showRecipeid(recipe._id)}}
         
@@ -152,30 +175,20 @@ const unsaverecipe=async(recipeId)=>{
 
 
        <div className="recipe-info">
-       <div style={{display:"flex"}}>
-      <h1 className='heading' style={{color:"   #3D550C"}} >    {recipe.name}   
+       <div >
+      <h1 className='heading' style={{color:"   #3D550C",transform:"translateX(2rem)"}} >    {recipe.name}   
        </h1>
-       <div>
-       <button className='save'  onClick={()=>{savedRecipe(recipe._id)}} disabled={isalreadysaved(recipe._id)} style={{zIndex:"100"}}>{isalreadysaved(recipe._id)?`Favourited `:`Favourite`}</button>
-     
-       </div>
+      
       
           </div>
+          <div className='save'>
+          <a className='save'  onClick={()=>{savedRecipe(recipe._id)}} disabled={isalreadysaved(recipe._id)} style={{zIndex:"100"}}>{isalreadysaved(recipe._id)?<BsFillBookmarkFill style={{color:`rgb(251, 210, 0)`}}/>:<BsFillBookmarkFill style={{color:"grey"}}/>}</a>
+          </div>
          
-          {/* <div className='show-ing'>
-            <li className='show-ing' >
-           <span>  <h2 style={{display:"inline"}} className='heading' >
-             Ingredients Used
-              </h2></span> 
+         
+          <p className='cook-time'>
             
-              {recipe.ingredients.map((rec)=>( <li  style={{display:"flex"}} className='ing-li' >{rec},</li> ))}
-            </li>
-          </div> */}
-          <p>
-            <h2 className='heading' >
-              Cooking Time
-              </h2>
-            <span className='cook-time'>           {recipe.cookingTime} mins</span>
+            <span className='cook-time'> <BsClockHistory/> {recipe.cookingTime} mins</span>
           </p>
         
        </div>

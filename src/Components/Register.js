@@ -39,22 +39,22 @@ export default function Register() {
     }
 }
   return (
-    <div>
-      <form action="" onSubmit={onsubmit}>
-        <h2 style={{display:"flex",justifyContent:"center"}}>Register</h2>
-       <div className="form-group" id='username-2'>
-       <label htmlFor="username">Username:</label>
-        <input placeholder='Enter username' type="text" id='username' onChange={(event)=>{setusername(event.target.value)}}  value={username}/>
-       </div>
-       <div className="form-group">
-       <label htmlFor="password">Password:</label>
-        <input placeholder='Enter your password' type="text" id='password' onChange={(event)=>{setpassword(event.target.value)}} value={password} />
-       </div>
-     <div className='log-btn' style={{display:"flex",justifyContent:"center"}}>
-     <button   type='submit'>Register</button>
+    <div className='auth-comp'>
+    <form action="" onSubmit={onsubmit}>
+      <h2 style={{display:"flex",justifyContent:"center",transform:"translateY(2rem)",color:"white"}}>Signup</h2>
+     <div className="form-group"id='username-2'>
+   
+      <input placeholder='Enter your username' style={{margin:"0 2rem"}} type="text" id='username' onChange={(event)=>{setusername(event.target.value)}}  value={username}/>
      </div>
-      </form>
-    
+     <div className="form-group">
+   
+      <input placeholder='Enter your password' type="password" id='password' onChange={(event)=>{setpassword(event.target.value)}} value={password} />
+     </div >
+    <div style={{display:"flex",justifyContent:"center"}} className='log-btn'>
+    <button type='submit' ><span style={{color:"white",fontWeight:"bolder"}}>Signup</span></button>
     </div>
+    </form>
+  
+  </div>
   )
 }
