@@ -52,7 +52,7 @@ export default function Create() {
           <input className='create-input' type="text" id='name' onChange={handlechange} name="name" placeholder='Give your recipe a title' />
 
           <label htmlFor="ing" style={{}}>Ingredients</label>
-          <button onClick={adding} type="button" style={{ margin: "2rem", padding: "1rem" }}>add ingredients</button>
+          <button onClick={adding} type="button" style={{ margin: "2rem", padding: "1rem" }}>add ingredients      <span style={{fontWeight:"bolder"}}>+</span></button>
           {recipe.ingredients.map((ingredient, index) => (
 
             <input className='create-input' type="text" id='ing' name='ingredients' key={index} value={ingredient} onChange={(event) => handleingchange(event, index)} placeholder='e.g. cups flour,sifted etc' />

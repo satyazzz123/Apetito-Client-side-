@@ -17,7 +17,7 @@ export default function Register() {
         b.innerText=("Username already exits try a new username");
         b.style.color="red"
         b.style.fontSize="1.5rem"
-        if(a.childElementCount==2){
+        if(a.childElementCount===2){
           a.appendChild(b)}
        
       }
